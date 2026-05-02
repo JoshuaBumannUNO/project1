@@ -102,6 +102,8 @@ class Logic:
         self.ui.login_message.clear()
         self.ui.amount_entered.clear()
         self.ui.amount_message.clear()
+        self.ui.deposit.setChecked(True)
+        self.ui.withdrawal.setChecked(False)
     def load_accounts(self) -> None:
         """
         load the accounts from the csv file
