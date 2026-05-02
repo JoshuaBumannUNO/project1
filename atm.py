@@ -1,7 +1,3 @@
-"""
-main.py
-launches the gui and connects it to the logic
-"""
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from gui import Ui_MainWindow

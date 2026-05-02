@@ -1,7 +1,3 @@
-"""
-logic.py
-handles the atm logic
-"""
 from gui import Ui_MainWindow
 import csv
 
