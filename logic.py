@@ -20,10 +20,10 @@ class Account:
         param pin: PIN of the account
         :param balance: initial balance of the account holder
         """
-        self.__first: str = first
-        self.__last: str = last
-        self.__pin: str = pin
-        self.__balance: float = balance
+        self.__first = first
+        self.__last = last
+        self.__pin = pin
+        self.__balance = balance
     def get_name(self) -> str:
         """
         get the full name of the account holder
@@ -85,7 +85,7 @@ class Logic:
         Initialises the logic with the ui instance
         :param ui: the main window for the ui
         """
-        self.ui: Ui_MainWindow = ui
+        self.ui = ui
         self.accounts = []
         self.current_account = None
 
@@ -139,13 +139,13 @@ class Logic:
         creates a new account using values from the input fields
         prevents a duplicate account and validates input
         """
-        first: str = self.ui.first_input.text().strip()
-        last: str = self.ui.last_input.text().strip()
-        pin: str = self.ui.pin_input.text().strip()
+        first = self.ui.first_input.text().strip()
+        last = self.ui.last_input.text().strip()
+        pin = self.ui.pin_input.text().strip()
         if not first or not last or not pin:
             self.ui.login_message.setText("Invalid input")
             return
-        full_name: str = f"{first} {last}"
+        full_name = f"{first} {last}"
         for account in self.accounts:
             if account.get_name().lower() == full_name.lower():
                 self.ui.login_message.setText("Account already exists")
@@ -164,11 +164,11 @@ class Logic:
         if self.current_account:
             self.ui.login_message.setText("Already Logged in.")
             return
-        first: str = self.ui.first_input.text().strip()
-        last: str = self.ui.last_input.text().strip()
-        pin: str = self.ui.pin_input.text().strip()
+        first = self.ui.first_input.text().strip()
+        last = self.ui.last_input.text().strip()
+        pin = self.ui.pin_input.text().strip()
 
-        full_name: str = f"{first} {last}"
+        full_name = f"{first} {last}"
         for account in self.accounts:
             if account.get_name().lower() == full_name.lower():
                 if account.verify_pin(pin):
@@ -185,15 +185,15 @@ class Logic:
         if self.current_account is None:
             return
         try:
-            amount: float = float(self.ui.amount_entered.text())
-            amount: float = float(f"{amount:.2f}")
+            amount = float(self.ui.amount_entered.text())
+            amount = float(f"{amount:.2f}")
         except ValueError:
             self.ui.amount_message.setText("Enter a valid number")
             return
         if self.ui.deposit.isChecked():
-            success: bool = self.current_account.deposit(amount)
+            success = self.current_account.deposit(amount)
         else:
-            success: bool = self.current_account.withdraw(amount)
+            success = self.current_account.withdraw(amount)
         if success:
             self.save_accounts()
             self.ui.amount_message.setText(f"Success! New balance: {self.current_account.get_balance():.2f}")
