@@ -5,9 +5,6 @@ import csv
 FILE: str = "accounts.csv"
 
 class Account:
-    """
-    Represents a simple bank account atm login that deposits and withdrawals
-    """
     def __init__(self, first: str, last: str, pin: str, balance: float = 0.0) -> None:
         """
         Initialises the account object
@@ -68,14 +65,10 @@ class Account:
     def from_row(row: list) -> "Account":
         """
         create an account instance from a csv row
-        :param row: list of string values to represent the account
-        :return: account instance
+        :param row: list of string values to represent the account        :return:  instance
         """
         return Account(row[0], row[1], row[2], float(row[3]))
 class Logic:
-    """
-    Handles the logic of the atm gui
-    """
     def __init__(self, ui: Ui_MainWindow) -> None:
         """
         Initialises the logic with the ui instance
@@ -202,5 +195,5 @@ class Logic:
         self.current_account = None
         self.ui.logged_in.setEnabled(False)
         self.clear_all()
-
+        
 
