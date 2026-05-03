@@ -192,7 +192,7 @@ class Logic:
             success = self.current_account.withdraw(amount)
         if success:
             self.save_accounts()
-            self.ui.amount_message.setText(f"Success! New balance: {self.current_account.get_balance():.2f}")
+            self.ui.amount_message.setText(f"Success! New balance: ${self.current_account.get_balance():.2f}")
         else:
             self.ui.amount_message.setText("Transaction failed")
     def logout(self) -> None:
